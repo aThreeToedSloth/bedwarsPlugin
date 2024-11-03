@@ -1,0 +1,12 @@
+name: bedwarsPlugin
+version: '${project.version}'
+main: me.athreetoedsloth.bedwarsplugin.BedwarsPlugin
+
+commands:
+  createteam:
+    description: Creates a new team.
+    usage: /<command> <color>
+
+  start:
+    description: Starts the game.
+    usage: /<command>

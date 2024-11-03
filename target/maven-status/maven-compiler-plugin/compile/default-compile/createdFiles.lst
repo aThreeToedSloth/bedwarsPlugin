@@ -1,0 +1,9 @@
+me\athreetoedsloth\bedwarsplugin\Managers\TeamManager.class
+me\athreetoedsloth\bedwarsplugin\BedwarsPlugin.class
+me\athreetoedsloth\bedwarsplugin\Commands\StartCommand.class
+me\athreetoedsloth\bedwarsplugin\Listeners\PlayerDeath.class
+me\athreetoedsloth\bedwarsplugin\Managers\StateManager$1.class
+me\athreetoedsloth\bedwarsplugin\Managers\Team.class
+me\athreetoedsloth\bedwarsplugin\Managers\StateManager.class
+me\athreetoedsloth\bedwarsplugin\Commands\CreateTeam.class
+me\athreetoedsloth\bedwarsplugin\Managers\States.class
