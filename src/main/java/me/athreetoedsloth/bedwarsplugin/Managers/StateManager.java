@@ -57,8 +57,10 @@ public class StateManager {
         IChatBaseComponent message = IChatBaseComponent.ChatSerializer.a("Go!");
 
         for(Team team : plugin.teams){
-            for(Player ignored : team.getPlayers()){
-                message = IChatBaseComponent.ChatSerializer.a(team.getTeamChatColor() + "Go!");
+            for(Player player : team.getPlayers()){
+                if(player == p){
+                    message = IChatBaseComponent.ChatSerializer.a(team.getTeamChatColor() + "Go!");
+                }
             }
         }
 
