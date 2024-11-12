@@ -6,22 +6,21 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class StartCommand implements CommandExecutor {
+public class EndCommand implements CommandExecutor {
 
     private BedwarsPlugin plugin;
 
-    public StartCommand(BedwarsPlugin plugin){
+    public EndCommand(BedwarsPlugin plugin){
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-
-        if(plugin.stateManager.getState() == GameStates.LOBBY){
-            plugin.stateManager.changeState(GameStates.START);
+        if(plugin.stateManager.getState() == GameStates.IN_PROGRESS){
+            plugin.stateManager.changeState(GameStates.END);
         }
         else {
-            commandSender.sendMessage("The match has already started!");
+            commandSender.sendMessage("The match hasn't begun!");
         }
         return true;
     }

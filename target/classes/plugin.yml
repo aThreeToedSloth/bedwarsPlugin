@@ -3,10 +3,10 @@ version: '1'
 main: me.athreetoedsloth.bedwarsplugin.BedwarsPlugin
 
 commands:
-  createteam:
-    description: Creates a new team.
-    usage: /<command> <color>
-
   start:
     description: Starts the game.
+    usage: /<command>
+
+  end:
+    description: End the game.
     usage: /<command>

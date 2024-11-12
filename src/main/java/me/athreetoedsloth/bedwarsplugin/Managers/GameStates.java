@@ -1,6 +1,6 @@
 package me.athreetoedsloth.bedwarsplugin.Managers;
 
-public enum States {
+public enum GameStates {
     LOBBY,
     START,
     IN_PROGRESS,

@@ -1,7 +1,8 @@
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\BedwarsPlugin.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Commands\StartCommand.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Managers\States.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Managers\StateManager.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Managers\Team.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Commands\CreateTeam.java
-C:\Users\Oliver\Documents\IdeaProjects\bedwarsPlugin\src\main\java\me\athreetoedsloth\bedwarsplugin\Listeners\PlayerDeath.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Listeners/PlayerTakeDamage.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/StateManager.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/StartCommand.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/GameStates.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/BedwarsPlugin.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/StopCommand.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/TeamManager.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/Team.java
