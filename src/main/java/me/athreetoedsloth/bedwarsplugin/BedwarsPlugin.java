@@ -3,7 +3,6 @@ package me.athreetoedsloth.bedwarsplugin;
 import me.athreetoedsloth.bedwarsplugin.Commands.StartCommand;
 import me.athreetoedsloth.bedwarsplugin.Commands.EndCommand;
 import me.athreetoedsloth.bedwarsplugin.Listeners.PlayerTakeDamage;
-import me.athreetoedsloth.bedwarsplugin.Managers.GameStates;
 import me.athreetoedsloth.bedwarsplugin.Managers.StateManager;
 import me.athreetoedsloth.bedwarsplugin.Managers.Team;
 import me.athreetoedsloth.bedwarsplugin.Managers.TeamManager;

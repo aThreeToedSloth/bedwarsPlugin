@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public class StartCommand implements CommandExecutor {
 
-    private BedwarsPlugin plugin;
+    BedwarsPlugin plugin;
 
     public StartCommand(BedwarsPlugin plugin){
         this.plugin = plugin;

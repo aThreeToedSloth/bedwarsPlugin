@@ -8,16 +8,16 @@ import org.bukkit.entity.Player;
 
 public class TeamManager {
 
-    private BedwarsPlugin plugin;
+    BedwarsPlugin plugin;
 
     public TeamManager (BedwarsPlugin plugin){
         this.plugin = plugin;
     }
 
     //List of colors
-    private Color[] colors = {Color.RED, Color.BLUE, Color.PURPLE, Color.ORANGE};
-    private ChatColor[] chatColors = {ChatColor.RED, ChatColor.BLUE, ChatColor.DARK_PURPLE, ChatColor.GOLD};
-    private String[] colorNames = {"Red","Blue","Fuchsia","Orange"};
+    private final Color[] colors = {Color.RED, Color.BLUE, Color.PURPLE, Color.ORANGE};
+    private final ChatColor[] chatColors = {ChatColor.RED, ChatColor.BLUE, ChatColor.DARK_PURPLE, ChatColor.GOLD};
+    private final String[] colorNames = {"Red","Blue","Fuchsia","Orange"};
     //--------------
 
     //Creates a new bedwars team

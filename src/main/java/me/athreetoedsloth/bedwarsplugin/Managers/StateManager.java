@@ -3,13 +3,12 @@ package me.athreetoedsloth.bedwarsplugin.Managers;
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 public class StateManager {
 
-    private BedwarsPlugin plugin;
+    BedwarsPlugin plugin;
 
     public StateManager(BedwarsPlugin plugin){
         this.plugin = plugin;

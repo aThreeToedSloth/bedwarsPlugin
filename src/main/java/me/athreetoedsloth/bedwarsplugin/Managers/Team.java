@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Team {
 
-    private BedwarsPlugin plugin;
+    BedwarsPlugin plugin;
 
     public Team(BedwarsPlugin plugin){
         this.plugin = plugin;
