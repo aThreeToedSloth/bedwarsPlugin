@@ -57,7 +57,7 @@ public class StateManager {
     //Teleports all players to the lobby spawn
     private void teleportPlayersToLobby(){
         for(Player p: plugin.getServer().getOnlinePlayers()){
-            p.teleport(plugin.LOBBY_SPAWN);
+            p.teleport(plugin.spawnPointManager.getLobbySpawn());
         }
     }
 

@@ -6,7 +6,6 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Team {
@@ -18,7 +17,7 @@ public class Team {
     }
 
     //Data about the team
-    private ArrayList<Player> players = new ArrayList<>();
+    private final ArrayList<Player> players = new ArrayList<>();
     private Color teamColor;
     private String teamName;
     private ChatColor teamChatColor;

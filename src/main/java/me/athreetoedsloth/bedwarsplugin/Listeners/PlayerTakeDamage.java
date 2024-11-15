@@ -22,7 +22,7 @@ public class PlayerTakeDamage implements Listener {
         if(entity instanceof Player){
             Player p = (Player) entity;
             if(p.getHealth() - e.getDamage() <= 0){
-                plugin.teleportToSpawn(p);
+                plugin.spawnPointManager.teleportToSpawn(p);
                 p.setHealth(20.0);
                 e.setCancelled(true);
             }

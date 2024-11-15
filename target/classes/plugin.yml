@@ -10,3 +10,7 @@ commands:
   end:
     description: End the game.
     usage: /<command>
+
+  setlobbyspawn:
+    description: Sets the lobby's spawn point.
+    usage: /<command>
