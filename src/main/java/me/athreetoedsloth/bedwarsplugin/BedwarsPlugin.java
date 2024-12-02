@@ -1,17 +1,12 @@
 package me.athreetoedsloth.bedwarsplugin;
 
-import me.athreetoedsloth.bedwarsplugin.Commands.SetLobbySpawn;
-import me.athreetoedsloth.bedwarsplugin.Commands.StartCommand;
-import me.athreetoedsloth.bedwarsplugin.Commands.EndCommand;
+import me.athreetoedsloth.bedwarsplugin.Commands.*;
+import me.athreetoedsloth.bedwarsplugin.Listeners.OnBlockBreak;
+import me.athreetoedsloth.bedwarsplugin.Listeners.OnBlockPlace;
+import me.athreetoedsloth.bedwarsplugin.Listeners.OnHungerLoss;
 import me.athreetoedsloth.bedwarsplugin.Listeners.PlayerTakeDamage;
-import me.athreetoedsloth.bedwarsplugin.Managers.SpawnPointManager;
-import me.athreetoedsloth.bedwarsplugin.Managers.StateManager;
-import me.athreetoedsloth.bedwarsplugin.Managers.Team;
-import me.athreetoedsloth.bedwarsplugin.Managers.TeamManager;
-import org.bukkit.Bukkit;
+import me.athreetoedsloth.bedwarsplugin.Managers.*;
 import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -23,6 +18,7 @@ public final class BedwarsPlugin extends JavaPlugin {
     public ArrayList<Team> teams = new ArrayList<>();
     public StateManager stateManager = new StateManager(this);
     public SpawnPointManager spawnPointManager = new SpawnPointManager(this);
+    public BlockManager blockManager = new BlockManager(this);
 
     public Location lobbySpawn;
 
@@ -35,9 +31,17 @@ public final class BedwarsPlugin extends JavaPlugin {
         this.getCommand("start").setExecutor(new StartCommand(this));
         this.getCommand("end").setExecutor(new EndCommand(this));
         this.getCommand("setlobbyspawn").setExecutor(new SetLobbySpawn(this));
+        this.getCommand("blockprotection").setExecutor(new SetBlockProtection(this));
+        this.getCommand("setbedspawn").setExecutor(new SetBedSpawn());
+        this.getCommand("setteamspawn").setExecutor(new SetTeamSpawn(this));
 
         //Register events
         getServer().getPluginManager().registerEvents(new PlayerTakeDamage(this), this);
+        getServer().getPluginManager().registerEvents(new OnBlockPlace(this), this);
+        getServer().getPluginManager().registerEvents(new OnBlockBreak(this), this);
+        getServer().getPluginManager().registerEvents(new OnHungerLoss(), this);
+
+        System.out.println(spawnPointManager.getTeamSpawn(1));
 
     }
 
@@ -52,7 +56,6 @@ public final class BedwarsPlugin extends JavaPlugin {
         -ALLOW PLAYER TO SET TEAM AND BED SPAWN POINTS
         -SET UP RESTRAINTS FOR PLAYERS
         -SET UP SYSTEM TO GIVE AND TAKE AWAY ITEMS FROM PLAYERS
-        -BLOCK MANAGER
         -CREATE GAME LOOP
     */
 }

@@ -14,3 +14,16 @@ commands:
   setlobbyspawn:
     description: Sets the lobby's spawn point.
     usage: /<command>
+
+  setteamspawn:
+    description: Sets the spawn point for the teams.
+    usage: /<command> <0-7>
+
+  setbedspawn:
+    description: Sets the spawn point for the beds.
+    usage: /<command> <0-7>
+
+  blockprotection:
+    description: Toggle the block protection.
+    usage: /<command>
+

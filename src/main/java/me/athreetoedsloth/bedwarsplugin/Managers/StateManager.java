@@ -3,8 +3,11 @@ package me.athreetoedsloth.bedwarsplugin.Managers;
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 
 public class StateManager {
 
@@ -18,12 +21,18 @@ public class StateManager {
 
     //Changes the game state
     public void changeState(GameStates state){
+        ArrayList<Player> players = new ArrayList<>(Bukkit.getOnlinePlayers());
+        World world = (players.get(0).getWorld());
+
         this.state = state;
         switch (state){
             case LOBBY:
 
                 break;
             case START:
+                plugin.blockManager.setupProtectedBlocks(world);
+                plugin.blockManager.setProtectionEnabled(true);
+
                 plugin.teamManager.setupTeams(2);
                 teleportPlayersToSpawnPoint();
 
@@ -40,6 +49,8 @@ public class StateManager {
                 Bukkit.broadcastMessage("The game has ended!");
                 plugin.teams.clear();
                 teleportPlayersToLobby();
+                plugin.blockManager.resetMap(world);
+
                 changeState(GameStates.LOBBY);
                 break;
         }

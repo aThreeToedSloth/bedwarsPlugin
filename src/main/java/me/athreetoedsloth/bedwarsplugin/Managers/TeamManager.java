@@ -40,17 +40,7 @@ public class TeamManager {
         if(numOfTeams <= colors.length && numOfTeams > 1){
             for(int i = 0; i < numOfTeams; i++){
                 plugin.teams.add(createTeam(colors[i]));
-                switch(i){
-                    case 0:
-                        plugin.teams.get(i).setSpawnPoint(new Location(plugin.getServer().getWorld("world"), -9.5, 96.0, -10.5, 90.0f, 0.0f));
-                        break;
-                    case 1:
-                        plugin.teams.get(i).setSpawnPoint(new Location(plugin.getServer().getWorld("world"), -30.5, 96.0, -6.5, 270.0f, 0.0f));
-                        break;
-                    default:
-                        plugin.teams.get(i).setSpawnPoint(new Location(plugin.getServer().getWorld("world"), -9.5, 80.0, -10.5, 90.0f, 0.0f));
-                        break;
-                }
+                plugin.teams.get(i).setSpawnPoint(plugin.spawnPointManager.getTeamSpawn(i));
             }
 
             int j = 0;

@@ -1,7 +1,12 @@
 me/athreetoedsloth/bedwarsplugin/Commands/EndCommand.class
+me/athreetoedsloth/bedwarsplugin/Listeners/OnBlockPlace.class
+me/athreetoedsloth/bedwarsplugin/Listeners/OnHungerLoss.class
 me/athreetoedsloth/bedwarsplugin/Listeners/PlayerTakeDamage.class
 me/athreetoedsloth/bedwarsplugin/Commands/SetTeamSpawn.class
+me/athreetoedsloth/bedwarsplugin/Listeners/OnBlockBreak.class
 me/athreetoedsloth/bedwarsplugin/Managers/GameStates.class
+me/athreetoedsloth/bedwarsplugin/Managers/BlockManager.class
 me/athreetoedsloth/bedwarsplugin/Commands/SetLobbySpawn.class
+me/athreetoedsloth/bedwarsplugin/Commands/SetBlockProtection.class
 me/athreetoedsloth/bedwarsplugin/Commands/SetBedSpawn.class
 me/athreetoedsloth/bedwarsplugin/Managers/SpawnPointManager.class

@@ -9,26 +9,35 @@ import org.bukkit.entity.Player;
 public class SpawnPointManager {
     BedwarsPlugin plugin;
 
+    int NUM_OF_TEAMS = 8;
+
     FileConfiguration config;
     private Location lobbySpawn;
+    private Location[] teamSpawn;
+    private Location[] bedSpawn;
 
     public SpawnPointManager (BedwarsPlugin plugin){
         this.plugin = plugin;
     }
 
     public void setup(){
+        teamSpawn = new Location[NUM_OF_TEAMS];
+
         config = plugin.getConfig();
         config.options().copyDefaults(true);
 
-        if(config.getString("Lobby Spawn") != null){
-            //If a lobby spawn can be found in the config file then set the lobbySpawn variable to it.
-            setLobbySpawn(stringToLoc(config.getString("Lobby Spawn")));
-        }
-        else {
+        if(config.getString("Lobby Spawn") == null){
             //If a lobby spawn cannot be found in the config then set it to the default value and add the default value to the config.
             updateLobbySpawnPoint(new Location(plugin.getServer().getWorld("world"), 3.5, 96, -8.5, 90.0f, 0.0f));
         }
-        plugin.getServer().broadcastMessage("Woo!");
+        setLobbySpawn(stringToLoc(config.getString("Lobby Spawn")));
+
+        for(int i = 0; i < NUM_OF_TEAMS; i++){
+            if(config.getString("Team Spawn." + i) == null){
+                updateTeamSpawnPoint(new Location(plugin.getServer().getWorld("world"), 3.5, 96, -8.5, 90.0f, 0.0f), i);
+            }
+            setTeamSpawn(stringToLoc(config.getString("Team Spawn." + i)), i);
+        }
     }
 
     //If the player is on a team then teleport them to the team spawn, otherwise teleport them to the lobby spawn.
@@ -73,7 +82,13 @@ public class SpawnPointManager {
         loc.setYaw(roundTo45(loc.getYaw()));
         loc.setPitch(0.0f);
         config.addDefault("Lobby Spawn", locToString(loc));        //Adds the lobby spawn to the config
-        setLobbySpawn(loc);                                               //Changes the location of the lobby spawn.
+        setLobbySpawn(loc);
+    }
+
+    public void updateTeamSpawnPoint(Location loc, int index){
+        loc.setYaw(roundTo45(loc.getYaw()));
+        loc.setPitch(0.0f);
+        config.addDefault("Team Spawn." + index, locToString(loc));
     }
 
     public Location getLobbySpawn(){
@@ -81,5 +96,12 @@ public class SpawnPointManager {
     }
     public void setLobbySpawn(Location loc){
         lobbySpawn = loc;
+    }
+
+    public Location getTeamSpawn(int index){
+        return teamSpawn[index];
+    }
+    public void setTeamSpawn(Location loc, int index){
+        teamSpawn[index] = loc;
     }
 }
