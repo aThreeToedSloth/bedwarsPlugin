@@ -20,8 +20,6 @@ public final class BedwarsPlugin extends JavaPlugin {
     public DeathManager deathManager = new DeathManager(this);
     public KitManager kitManager = new KitManager(this);
 
-    public Location lobbySpawn;
-
     @Override
     public void onEnable() {
 

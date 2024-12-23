@@ -21,8 +21,8 @@ public class StartCommand implements CommandExecutor {
             if(strings.length == 1){
                 if(isValidNumber(strings[0])){
                     int num = Integer.parseInt(strings[0]);
-                    plugin.stateManager.changeState(GameStates.START);
                     plugin.numberOfTeams = num;
+                    plugin.stateManager.changeState(GameStates.START);
                     return true;
                 }
             }
