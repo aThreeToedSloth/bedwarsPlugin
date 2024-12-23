@@ -6,24 +6,30 @@ commands:
   start:
     description: Starts the game.
     usage: /<command> <2-8>
+    permission: bedwarsplugin.start
 
   end:
     description: End the game.
     usage: /<command>
+    permission: bedwarsplugin.end
 
   setlobbyspawn:
     description: Sets the lobby's spawn point.
     usage: /<command>
+    permission: bedwarsplugin.spawn
 
   setteamspawn:
     description: Sets the spawn point for the teams.
     usage: /<command> <0-7>
+    permission: bedwarsplugin.spawn
 
   setbedspawn:
     description: Sets the spawn point for the beds.
     usage: /<command> <0-7>
+    permission: bedwarsplugin.spawn
 
   blockprotection:
     description: Toggle the block protection.
     usage: /<command>
+    permission: bedwarsplugin.blockprotection
 
