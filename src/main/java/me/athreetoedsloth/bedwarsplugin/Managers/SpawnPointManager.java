@@ -99,19 +99,19 @@ public class SpawnPointManager {
     public void updateLobbySpawnPoint(Location loc){
         loc.setYaw(roundTo45(loc.getYaw()));
         loc.setPitch(0.0f);
-        config.addDefault("Lobby Spawn", locToString(loc));        //Adds the lobby spawn to the config
+        config.set("Lobby Spawn", locToString(loc));
         plugin.saveConfig();
     }
 
     public void updateTeamSpawnPoint(Location loc, int index){
         loc.setYaw(roundTo45(loc.getYaw()));
         loc.setPitch(0.0f);
-        config.addDefault("Team Spawn." + index, locToString(loc));
+        config.set("Team Spawn." + index, locToString(loc));
         plugin.saveConfig();
     }
 
     public void updateBedSpawnPoint(Location loc, int index){
-        config.addDefault("Bed Spawn." + index, locToString(loc));
+        config.set("Bed Spawn." + index, locToString(loc));
         plugin.saveConfig();
     }
 
