@@ -7,6 +7,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.UUID;
 
 public class Team {
 
@@ -17,11 +19,13 @@ public class Team {
     }
 
     //Data about the team
-    private final ArrayList<Player> players = new ArrayList<>();
+    private final ArrayList<UUID> players = new ArrayList<>();
     private Color teamColor;
     private String teamName;
     private ChatColor teamChatColor;
     private Location spawnPoint;
+    private boolean bedAlive;
+    private boolean teamAlive;
     //-------------------
 
     //Getter and setter methods
@@ -50,10 +54,10 @@ public class Team {
     }
 
     public void addPlayer(Player player){
-        players.add(player);
+        players.add(player.getUniqueId());
     }
 
-    public ArrayList<Player> getPlayers(){
+    public ArrayList<UUID> getPlayers(){
         return players;
     }
 
@@ -63,5 +67,21 @@ public class Team {
 
     public Location getSpawnPoint() {
         return spawnPoint;
+    }
+
+    public void setBedAlive(boolean bedAlive) {
+        this.bedAlive = bedAlive;
+    }
+
+    public boolean getBedAlive(){
+        return this.bedAlive;
+    }
+
+    public void setTeamAlive(boolean teamAlive){
+        this.teamAlive = teamAlive;
+    }
+
+    public boolean getTeamAlive(){
+        return this.teamAlive;
     }
 }

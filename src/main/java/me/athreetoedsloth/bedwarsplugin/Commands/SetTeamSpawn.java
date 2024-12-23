@@ -1,6 +1,7 @@
 package me.athreetoedsloth.bedwarsplugin.Commands;
 
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
+import me.athreetoedsloth.bedwarsplugin.Managers.GameStates;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -19,6 +20,12 @@ public class SetTeamSpawn implements CommandExecutor {
     //Set the spawn point of a specific team to the current location of the command sender
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+
+        if(plugin.stateManager.getState() != GameStates.LOBBY){
+            commandSender.sendMessage(ChatColor.RED + "You cannot use this command while a game is in progress.");
+            return true;
+        }
+
         if(strings.length == 1){
             if(commandSender instanceof Player){
                 Player p = (Player) commandSender;

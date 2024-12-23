@@ -5,10 +5,13 @@
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/StartCommand.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/GameStates.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Listeners/OnBlockPlace.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Listeners/OnPlayerDisconnect.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/DeathManager.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/BlockManager.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/SetLobbySpawn.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/SetBlockProtection.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/BedwarsPlugin.java
+/home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Managers/KitManager.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/SetBedSpawn.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/SetTeamSpawn.java
 /home/oliver/IdeaProjects/bedwarsPlugin/src/main/java/me/athreetoedsloth/bedwarsplugin/Commands/EndCommand.java

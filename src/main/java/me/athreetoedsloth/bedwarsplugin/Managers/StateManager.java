@@ -3,11 +3,13 @@ package me.athreetoedsloth.bedwarsplugin.Managers;
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class StateManager {
 
@@ -30,15 +32,23 @@ public class StateManager {
 
                 break;
             case START:
+                //Enable block protection
                 plugin.blockManager.setupProtectedBlocks(world);
                 plugin.blockManager.setProtectionEnabled(true);
 
-                plugin.teamManager.setupTeams(2);
+                //Place beds
+                placeBeds(plugin.numberOfTeams);
+
+                //Set up teams and teleport players
+                plugin.teamManager.setupTeams(plugin.numberOfTeams);
                 teleportPlayersToSpawnPoint();
 
+                //Display the start title for all players
                 for(Player p : plugin.getServer().getOnlinePlayers()){
                     displayTitle(p);
                 }
+
+                plugin.kitManager.giveKits();
 
                 changeState(GameStates.IN_PROGRESS);
                 break;
@@ -51,6 +61,8 @@ public class StateManager {
                 teleportPlayersToLobby();
                 plugin.blockManager.resetMap(world);
 
+                plugin.kitManager.clearKits();
+
                 changeState(GameStates.LOBBY);
                 break;
         }
@@ -59,8 +71,11 @@ public class StateManager {
     //Teleports all players to their team's spawn
     private void teleportPlayersToSpawnPoint(){
         for(Team team : plugin.teams){
-            for(Player p: team.getPlayers()){
-                p.teleport(team.getSpawnPoint());
+            for(UUID p: team.getPlayers()){
+                if(plugin.getServer().getOfflinePlayer(p).isOnline()){
+                    Player player = (Player) plugin.getServer().getOfflinePlayer(p);
+                    player.teleport(team.getSpawnPoint());
+                }
             }
         }
     }
@@ -81,9 +96,12 @@ public class StateManager {
         IChatBaseComponent message = IChatBaseComponent.ChatSerializer.a("Go!");
 
         for(Team team : plugin.teams){
-            for(Player player : team.getPlayers()){
-                if(player == p){
-                    message = IChatBaseComponent.ChatSerializer.a(team.getTeamChatColor() + "Go!");
+            for(UUID player : team.getPlayers()){
+                if(plugin.getServer().getOfflinePlayer(player).isOnline()){
+                    Player _player = (Player) plugin.getServer().getOfflinePlayer(player);
+                    if(_player == p){
+                        message = IChatBaseComponent.ChatSerializer.a(team.getTeamChatColor() + "Go!");
+                    }
                 }
             }
         }
@@ -92,6 +110,13 @@ public class StateManager {
         PacketPlayOutTitle length = new PacketPlayOutTitle(5,20,5);
         playerConnection.sendPacket(title);
         playerConnection.sendPacket(length);
+    }
+
+    //Place the beds down at the start of a match
+    private void placeBeds(int teams){
+        for(int i = 0; i < teams; i++){
+            plugin.spawnPointManager.getBedSpawn(i).getBlock().setType(Material.WOOL);
+        }
     }
 
     public GameStates getState(){

@@ -3,7 +3,6 @@ package me.athreetoedsloth.bedwarsplugin.Managers;
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class TeamManager {
@@ -24,6 +23,8 @@ public class TeamManager {
     private Team createTeam(Color color){
         Team team = new Team(plugin);
         team.setTeamColor(color);
+        team.setBedAlive(true);
+        team.setTeamAlive(true);
 
         for(int i = 0; i < colors.length; i++){
             if(color.equals(colors[i])){
@@ -52,6 +53,12 @@ public class TeamManager {
                 j++;
                 if(j >= numOfTeams){
                     j = 0;
+                }
+            }
+
+            for(Team team : plugin.teams){
+                if(team.getPlayers().isEmpty()){
+                    team.setTeamAlive(false);
                 }
             }
         }

@@ -6,6 +6,8 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class SpawnPointManager {
     BedwarsPlugin plugin;
 
@@ -22,35 +24,51 @@ public class SpawnPointManager {
 
     public void setup(){
         teamSpawn = new Location[NUM_OF_TEAMS];
+        bedSpawn = new Location[NUM_OF_TEAMS];
 
         config = plugin.getConfig();
-        config.options().copyDefaults(true);
 
+        //Set up the lobby spawn point
         if(config.getString("Lobby Spawn") == null){
             //If a lobby spawn cannot be found in the config then set it to the default value and add the default value to the config.
             updateLobbySpawnPoint(new Location(plugin.getServer().getWorld("world"), 3.5, 96, -8.5, 90.0f, 0.0f));
         }
         setLobbySpawn(stringToLoc(config.getString("Lobby Spawn")));
 
+        //set up the team spawn points
         for(int i = 0; i < NUM_OF_TEAMS; i++){
             if(config.getString("Team Spawn." + i) == null){
                 updateTeamSpawnPoint(new Location(plugin.getServer().getWorld("world"), 3.5, 96, -8.5, 90.0f, 0.0f), i);
             }
             setTeamSpawn(stringToLoc(config.getString("Team Spawn." + i)), i);
         }
+
+        //set up the bed spawn points
+        for(int i = 0; i < NUM_OF_TEAMS; i++){
+            if(config.getString("Bed Spawn." + i) == null){
+                updateBedSpawnPoint(new Location(plugin.getServer().getWorld("world"), 3.5, 96, -8.5, 90.0f, 0.0f), i);
+            }
+            setBedSpawn(stringToLoc(config.getString("Bed Spawn." + i)), i);
+        }
     }
 
     //If the player is on a team then teleport them to the team spawn, otherwise teleport them to the lobby spawn.
-    public void teleportToSpawn(Player p){
+    public void teleportToSpawn(Player player){
         for(Team team : plugin.teams){
-            for(Player _p: team.getPlayers()){
-                if(_p == p){
-                    p.teleport(team.getSpawnPoint());
-                    return;
+            for(UUID p: team.getPlayers()){
+                if(plugin.getServer().getOfflinePlayer(p).isOnline()){
+                    Player _p = (Player) plugin.getServer().getOfflinePlayer(p);
+
+                    if(_p == player){
+                        player.teleport(team.getSpawnPoint());
+                        return;
+                    }
                 }
+
+
             }
         }
-        p.teleport(getLobbySpawn());
+        player.teleport(getLobbySpawn());
     }
 
     private String locToString(Location loc){
@@ -82,13 +100,19 @@ public class SpawnPointManager {
         loc.setYaw(roundTo45(loc.getYaw()));
         loc.setPitch(0.0f);
         config.addDefault("Lobby Spawn", locToString(loc));        //Adds the lobby spawn to the config
-        setLobbySpawn(loc);
+        plugin.saveConfig();
     }
 
     public void updateTeamSpawnPoint(Location loc, int index){
         loc.setYaw(roundTo45(loc.getYaw()));
         loc.setPitch(0.0f);
         config.addDefault("Team Spawn." + index, locToString(loc));
+        plugin.saveConfig();
+    }
+
+    public void updateBedSpawnPoint(Location loc, int index){
+        config.addDefault("Bed Spawn." + index, locToString(loc));
+        plugin.saveConfig();
     }
 
     public Location getLobbySpawn(){
@@ -103,5 +127,13 @@ public class SpawnPointManager {
     }
     public void setTeamSpawn(Location loc, int index){
         teamSpawn[index] = loc;
+    }
+
+    public Location getBedSpawn(int index){
+        return bedSpawn[index];
+    }
+
+    public void setBedSpawn(Location loc, int index){
+        bedSpawn[index] = loc;
     }
 }

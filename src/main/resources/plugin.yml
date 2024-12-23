@@ -5,7 +5,7 @@ main: me.athreetoedsloth.bedwarsplugin.BedwarsPlugin
 commands:
   start:
     description: Starts the game.
-    usage: /<command>
+    usage: /<command> <2-8>
 
   end:
     description: End the game.
