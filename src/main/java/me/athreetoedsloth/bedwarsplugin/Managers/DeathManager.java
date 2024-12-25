@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.Iterator;
+import java.util.Random;
 import java.util.UUID;
 
 public class DeathManager {
@@ -20,6 +21,7 @@ public class DeathManager {
         p.setHealth(20.0);
         ifGameInProgress(p.getUniqueId());
         plugin.spawnPointManager.teleportToSpawn(p);
+        displayDeathMessage(p);
     }
 
     private void ifGameInProgress(UUID p){
@@ -79,5 +81,41 @@ public class DeathManager {
             }
         }
         return false;
+    }
+
+    public void displayDeathMessage(Player player){
+        Random rand = new Random();
+        int randInt = rand.nextInt(5);
+
+        String name = ChatColor.BOLD + player.getDisplayName();
+
+        for(Team team : plugin.teams){
+            for(UUID uuid: team.getPlayers()){
+                if(uuid == player.getUniqueId()){
+                    name = team.getTeamChatColor() + name;
+                    break;
+                }
+            }
+        }
+
+        name = name + ChatColor.RESET;
+
+        switch(randInt){
+            case 0:
+                plugin.getServer().broadcastMessage(name + " was killed.");
+                break;
+            case 1:
+                plugin.getServer().broadcastMessage(name + " is no longer with us.");
+                break;
+            case 2:
+                plugin.getServer().broadcastMessage(name + " has died.");
+                break;
+            case 3:
+                plugin.getServer().broadcastMessage(name + " was slain.");
+                break;
+            case 4:
+                plugin.getServer().broadcastMessage(name + " has been killed.");
+                break;
+        }
     }
 }
