@@ -60,17 +60,23 @@ public class DeathManager {
     }
 
     public boolean checkIfTeamIsAlive(Team team) {
+        int teamsAlive = 0;
         if(team.getPlayers().isEmpty()){
             team.setTeamAlive(false);
             plugin.getServer().broadcastMessage(team.getTeamChatColor() + team.getTeamName() + " has been eliminated from the game.");
 
             for(Team _team : plugin.teams){
                 if(_team.getTeamAlive()){
-                    return false;
+                    teamsAlive++;
                 }
             }
-            plugin.stateManager.changeState(GameStates.END);
-            return true;
+            if(teamsAlive > 1){
+                return false;
+            }
+            else{
+                plugin.stateManager.changeState(GameStates.END);
+                return true;
+            }
         }
         return false;
     }
