@@ -19,9 +19,9 @@ public class DeathManager {
     public void onDeath(Player p){
         plugin.kitManager.clearKit(p);
         p.setHealth(20.0);
+        displayDeathMessage(p);
         ifGameInProgress(p.getUniqueId());
         plugin.spawnPointManager.teleportToSpawn(p);
-        displayDeathMessage(p);
     }
 
     private void ifGameInProgress(UUID p){
