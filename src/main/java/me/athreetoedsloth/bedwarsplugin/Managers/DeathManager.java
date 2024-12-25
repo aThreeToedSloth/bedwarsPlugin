@@ -3,7 +3,6 @@ package me.athreetoedsloth.bedwarsplugin.Managers;
 import me.athreetoedsloth.bedwarsplugin.BedwarsPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-
 import java.util.Iterator;
 import java.util.Random;
 import java.util.UUID;
