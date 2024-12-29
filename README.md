@@ -24,4 +24,4 @@ A Spigot plugin for Minecraft that lets you play a basic version of Bedwars.
 
   **Notes:** <br/>
   -Beds are currently just wool blocks. <br/>
-  -The play area should not go beyond 100 blocks in the x and z coordinates from the centre of the world as blocks will not be reset properly when the game ends. <br/>
+  -The play area should not go beyond 100 blocks in the x and z coordinates from the centre of the world as doing so will prevent blocks from being reset properly when the game ends. <br/>
