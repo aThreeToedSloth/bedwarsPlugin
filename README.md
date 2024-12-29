@@ -17,7 +17,7 @@ A Spigot plugin for Minecraft that lets you play a basic version of Bedwars.
   -Game ends once only one team remains. <br/>
 
   **How to play:** <br/>
-  -Teams spawn on islands in the sky with beds. (The islands are not included in this plugin and have to be created by the player, the commands provided above can be used to set spawn points to these islands.)
-  -The aim is to break the bed of the other teams, then kill the players to eliminate them from the game.
-  -Use the blocks that you are given to build bridges to other islands.
-  -Protect your own bed from getting broken.
+  -Teams spawn on islands in the sky with beds. (The islands are not included in this plugin and have to be created by the player, the commands provided above can be used to set spawn points to these islands.) <br/>
+  -The aim is to break the bed of the other teams, then kill the players to eliminate them from the game. <br/>
+  -Use the blocks that you are given to build bridges to other islands. <br/>
+  -Protect your own bed from getting broken. <br/>
