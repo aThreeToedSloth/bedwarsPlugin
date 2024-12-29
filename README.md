@@ -21,3 +21,7 @@ A Spigot plugin for Minecraft that lets you play a basic version of Bedwars.
   -The aim is to break the bed of the other teams, then kill the players to eliminate them from the game. <br/>
   -Use the blocks that you are given to build bridges to other islands. <br/>
   -Protect your own bed from getting broken. <br/>
+
+  **Notes:** <br/>
+  -Beds are currently just wool blocks. <br/>
+  -The play area should not go beyond 100 blocks in the x and z coordinates from the centre of the world as blocks will not be reset properly when the game ends. <br/>
