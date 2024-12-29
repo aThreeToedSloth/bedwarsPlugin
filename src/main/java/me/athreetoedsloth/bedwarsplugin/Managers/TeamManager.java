@@ -14,9 +14,9 @@ public class TeamManager {
     }
 
     //List of colors
-    private final Color[] colors = {Color.RED, Color.BLUE, Color.PURPLE, Color.ORANGE};
-    private final ChatColor[] chatColors = {ChatColor.RED, ChatColor.BLUE, ChatColor.DARK_PURPLE, ChatColor.GOLD};
-    private final String[] colorNames = {"Red","Blue","Fuchsia","Orange"};
+    private final Color[] colors = {Color.RED, Color.BLUE, Color.PURPLE, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.AQUA, Color.SILVER};
+    private final ChatColor[] chatColors = {ChatColor.RED, ChatColor.BLUE, ChatColor.DARK_PURPLE, ChatColor.GOLD, ChatColor.YELLOW, ChatColor.GREEN, ChatColor.AQUA, ChatColor.GRAY};
+    private final String[] colorNames = {"Red","Blue","Fuchsia","Orange", "Yellow", "Green", "Aqua", "Silver"};
     //--------------
 
     //Creates a new bedwars team

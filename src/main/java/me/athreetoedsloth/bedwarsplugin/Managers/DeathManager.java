@@ -32,11 +32,6 @@ public class DeathManager {
 
                     while(iter.hasNext()){
                         if(iter.next() == p){
-                            if(plugin.getServer().getOfflinePlayer(p).isOnline()){
-                                Player _p = (Player) plugin.getServer().getOfflinePlayer(p);
-                                _p.sendMessage( ChatColor.BLACK + "You have been eliminated.");
-                            }
-
                             iter.remove();
 
                             boolean isEnd = checkIfTeamIsAlive(team);
